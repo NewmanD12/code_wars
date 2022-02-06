@@ -43,3 +43,35 @@ def create_phone_number(n):
     return res
 
 create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+
+###############################################################
+
+def high(str):
+    '''
+    takes a string of words and parses each word
+    assigns value for each letter
+    returns the word with the highest score
+    '''
+    word_and_score_dict = {}
+    str = str.split(' ')
+    for i in str:
+        if i not in word_and_score_dict:
+            score = 0
+            for j in i:
+                print(ord(j) - 96, j)
+                score += ord(j) - 96
+            word_and_score_dict[i] = score
+    # print(word_and_score_dict)
+    maxCount = 0
+    most_valuable_word = [] 
+    for k,v in word_and_score_dict.items():
+        print(k,v)
+        if v > maxCount:
+            maxCount = v
+            most_valuable_word.clear()
+            most_valuable_word.append(k)
+    return most_valuable_word[0]
+
+
+# high('man i need a taxi up to ubud')
+high('what time are we climbing up the volcano')
