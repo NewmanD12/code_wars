@@ -58,14 +58,14 @@ def high(str):
         if i not in word_and_score_dict:
             score = 0
             for j in i:
-                print(ord(j) - 96, j)
+                # print(ord(j) - 96, j)
                 score += ord(j) - 96
             word_and_score_dict[i] = score
     # print(word_and_score_dict)
     maxCount = 0
     most_valuable_word = [] 
     for k,v in word_and_score_dict.items():
-        print(k,v)
+        # print(k,v)
         if v > maxCount:
             maxCount = v
             most_valuable_word.clear()
@@ -75,3 +75,20 @@ def high(str):
 
 # high('man i need a taxi up to ubud')
 high('what time are we climbing up the volcano')
+
+###############################################################
+
+def expanded_form(num):
+    num = str(num)
+    segments = []
+    for idx, val in enumerate(num):
+        # print(idx, val)
+        if int(val) > 0:
+            # print(num[idx+1:])
+            segment = val[0] + ('0' * len(num[idx+1:]))
+            segments.append(segment)
+    print(' + '.join(segments))
+    return ' + '.join(segments)
+
+
+expanded_form(70304)
