@@ -125,3 +125,106 @@ def move_zeros(array):
 
 move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])
 
+
+###############################################################
+
+
+def duplicate_encode(word):
+    word = word.lower()
+    res = ''
+    for i in word:
+        if word.count(i) > 1:
+            res += ')'
+        else:
+            res += '('
+    return res
+
+duplicate_encode("recede")
+
+###############################################################
+
+def sort_array(source_array):
+    odds = [x for x in source_array if x % 2 == 1]
+    evens = [x for x in source_array if x % 2 == 0]
+    odds.sort()
+    # print(odds + evens)
+    return odds + evens
+
+
+sort_array([5, 3, 2, 8, 1, 4])
+
+###############################################################
+
+def anagrams(word, words):
+    anagrams = []
+    wordLetters = [x.lower() for x in word]
+    wordLetters.sort()
+    for i in words:
+        split_word = [x.lower() for x in i]
+        split_word.sort()
+        if split_word == wordLetters:
+            anagrams.append(i)
+    return anagrams
+
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
+
+###############################################################
+
+def increment_string(strng):
+    res = ''
+    if strng[-1].isnumeric():
+        num = None
+        word_len = 0
+        zero_count = 0
+        for idx, val in enumerate(strng):
+            if val == 0:
+                zero_count += 1
+            if val.isnumeric():
+                # print(val)
+                num = int(strng[idx:])
+                word_len = idx
+                break
+        res = strng[:word_len] + str(num + 1)
+    else:
+        res = strng + '1'
+    # print(res)
+    return res
+
+increment_string("foobar099")
+increment_string('foobar')
+
+###############################################################
+
+def scramble(s1, s2):
+    word_1_dict = {}
+    word_2_dict = {}
+    res = True
+    for i in s1:
+        if i not in word_1_dict:
+            word_1_dict[i] = 1
+        else:
+            word_1_dict[i] += 1
+    
+    for i in s2:
+        if i not in word_2_dict:
+            word_2_dict[i] = 1
+        else:
+            word_2_dict[i] += 1
+    
+    for k,v in word_2_dict.items():
+        if k not in word_1_dict:
+            res = False
+        elif word_1_dict[k] < v:
+            res = False
+    return res
+        
+
+
+scramble('scriptjava', 'javascript')
+scramble('katas', 'steak')
+
+###############################################################
+
+
+
+
