@@ -117,7 +117,6 @@ find_uniq([ 1, 1, 1, 2, 1, 1 ])
 find_uniq([ 2, 1, 1, 1, 1, 1 ])
 find_uniq([ 1, 1, 1, 1, 1, 2 ])
 
-###############################################################
 
 def move_zeros(array):
     zeros = [x for x in array if x == 0]
@@ -167,22 +166,5 @@ def anagrams(word, words):
     return anagrams
 
 anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
