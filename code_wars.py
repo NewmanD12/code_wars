@@ -87,8 +87,34 @@ def expanded_form(num):
             # print(num[idx+1:])
             segment = val[0] + ('0' * len(num[idx+1:]))
             segments.append(segment)
-    print(' + '.join(segments))
+    # print(' + '.join(segments))
     return ' + '.join(segments)
 
 
 expanded_form(70304)
+
+###############################################################
+
+def find_uniq(arr):
+    """
+    takes an array of numbers, which are all the same execept ONE
+    and returns the number that is unique
+    """
+    unique = None 
+    for i in range(1, len(arr) -1):
+        if arr[i] == arr[i + 1] and arr[i] != arr[i - 1]:
+            unique = arr[i - 1] 
+            break
+        elif arr[i] != arr[i + 1] and arr[i] != arr[i - 1]:
+            unique = arr[i]
+            break
+        elif arr[i] == arr[i - 1] and arr[i] != arr[i + 1]:
+            unique = arr[i + 1]
+            break
+    return unique
+
+find_uniq([ 1, 1, 1, 2, 1, 1 ])
+find_uniq([ 2, 1, 1, 1, 1, 1 ])
+find_uniq([ 1, 1, 1, 1, 1, 2 ])
+
+###############################################################
