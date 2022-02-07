@@ -117,4 +117,11 @@ find_uniq([ 1, 1, 1, 2, 1, 1 ])
 find_uniq([ 2, 1, 1, 1, 1, 1 ])
 find_uniq([ 1, 1, 1, 1, 1, 2 ])
 
-###############################################################
+
+def move_zeros(array):
+    zeros = [x for x in array if x == 0]
+    nums = [x for x in array if x != 0]
+    return nums + zeros
+
+move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])
+
