@@ -125,3 +125,64 @@ def move_zeros(array):
     return nums + zeros
 
 move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])
+
+###############################################################
+
+
+def duplicate_encode(word):
+    word = word.lower()
+    res = ''
+    for i in word:
+        if word.count(i) > 1:
+            res += ')'
+        else:
+            res += '('
+    return res
+
+duplicate_encode("recede")
+
+###############################################################
+
+def sort_array(source_array):
+    odds = [x for x in source_array if x % 2 == 1]
+    evens = [x for x in source_array if x % 2 == 0]
+    odds.sort()
+    # print(odds + evens)
+    return odds + evens
+
+
+sort_array([5, 3, 2, 8, 1, 4])
+
+###############################################################
+
+def anagrams(word, words):
+    anagrams = []
+    wordLetters = [x.lower() for x in word]
+    wordLetters.sort()
+    for i in words:
+        split_word = [x.lower() for x in i]
+        split_word.sort()
+        if split_word == wordLetters:
+            anagrams.append(i)
+    return anagrams
+
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
