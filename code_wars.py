@@ -126,8 +126,6 @@ def move_zeros(array):
 move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])
 
 
-###############################################################
-
 
 def duplicate_encode(word):
     word = word.lower()
@@ -224,7 +222,5 @@ scramble('scriptjava', 'javascript')
 scramble('katas', 'steak')
 
 ###############################################################
-
-
 
 
