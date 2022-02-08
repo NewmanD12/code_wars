@@ -121,7 +121,6 @@ find_uniq([ 1, 1, 1, 2, 1, 1 ])
 find_uniq([ 2, 1, 1, 1, 1, 1 ])
 find_uniq([ 1, 1, 1, 1, 1, 2 ])
 
-###############################################################
 
 def move_zeros(array):
     zeros = [x for x in array if x == 0]
@@ -130,7 +129,6 @@ def move_zeros(array):
 
 move_zeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])
 
-###############################################################
 
 
 def duplicate_encode(word):
@@ -245,7 +243,6 @@ def cakes(recipe, available):
             values.append(int(str(available[k]/v).split('.')[0]))
     res = 0 if len(values) < len(recipe) else min(values)
     return res
-
 
 recipe = {'chocolate': 37, 'cream': 10, 'cocoa': 6}
 available = {'oil': 2371, 'crumbles': 3822, 'eggs': 672, 'sugar': 8924, 'apples': 1539, 
