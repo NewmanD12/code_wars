@@ -1,4 +1,5 @@
 from functools import cache
+from hashlib import new
 
 
 def likes(names):
@@ -267,3 +268,38 @@ def duplicate_count(text):
 
 duplicate_count("abcdeaB")
 
+###############################################################
+
+def disemvowel(string_):
+    '''
+    this function takes in a string and removes all the vowels and returns the string
+    '''
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    words = string_.split()
+    new_sentence = []
+    for word in words:
+        new_word = ''
+        for letter in word:
+            if letter.lower() not in vowels:
+                new_word += letter
+        new_sentence.append(new_word)
+    # print(' '.join(new_sentence))
+    return ' '.join(new_sentence)
+
+# disemvowel("This website is for losers LOL!")
+# disemvowel('zfm%OidLAX!yieHAeenlauVa_ OO/`k.ZUEiztIA[I kfAiKue LHAA~U!,|U$oi"NOO IE ')
+
+###############################################################
+
+def is_isogram(string):
+    letter_and_dict_count = {}
+    for i in string.lower():
+        if i not in letter_and_dict_count:
+            letter_and_dict_count[i] = 1
+        else:
+            letter_and_dict_count[i] += 1
+    return True if len(letter_and_dict_count) == len(string) else False
+
+is_isogram("Dermatoglyphics")
+
+###############################################################
