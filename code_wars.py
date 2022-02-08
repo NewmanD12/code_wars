@@ -1,3 +1,6 @@
+from functools import cache
+
+
 def likes(names):
     """
     takes a list of names and depending on length, returns who like it
@@ -155,7 +158,7 @@ sort_array([5, 3, 2, 8, 1, 4])
 
 ###############################################################
 
-def anagrams(word, words):
+def anagrams_1(word, words):
     anagrams = []
     wordLetters = [x.lower() for x in word]
     wordLetters.sort()
@@ -166,7 +169,7 @@ def anagrams(word, words):
             anagrams.append(i)
     return anagrams
 
-anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
+anagrams_1('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
 
 ###############################################################
 
@@ -225,16 +228,44 @@ scramble('katas', 'steak')
 
 ###############################################################
 
+def cakes(recipe, available):
+    '''
+    this function takes a recipe (dictionary) and a dictinonary of
+    available ingredients and returns how many of that recipe you could 
+    make
+    '''
+    res = None
+    if len(recipe) > len(available):
+        return 0
+    
+    values = []
+    for k,v in recipe.items():
+        if k in available:
+            values.append(int(str(available[k]/v).split('.')[0]))
+    res = 0 if len(values) < len(recipe) else min(values)
+    return res
 
 
+recipe = {'chocolate': 37, 'cream': 10, 'cocoa': 6}
+available = {'oil': 2371, 'crumbles': 3822, 'eggs': 672, 'sugar': 8924, 'apples': 1539, 
+                'flour': 4607, 'cocoa': 9117, 'chocolate': 1336, 'nuts': 2483, 'pears': 9022}
+cakes(recipe, available)
 
+###############################################################
 
+def duplicate_count(text):
+    text = text.lower()
+    char_and_count_dict = {}
+    for i in text:
+        if i in char_and_count_dict:
+            char_and_count_dict[i] += 1
+        else:    
+            char_and_count_dict[i] = 1
 
+    duplicate_count = 0
+    for v in char_and_count_dict.values():
+        if v > 1:
+            duplicate_count += 1
+    return duplicate_count
 
-
-
-
-
-
-
-
+duplicate_count("abcdeaB")
